@@ -15,7 +15,7 @@ const generateGamesList = (gamesArray, template, parent) => {
     clone.querySelector('.text').textContent = element.description;
     clone.querySelector('.developer').textContent = element.developer;
     const catlist = clone.querySelector('.categories');
-   element.categories.forEach(category => {
+    element.categories.forEach(category => {
       const listItem = document.createElement('li');
       listItem.textContent = category.name;
       catlist.append(listItem);
