@@ -147,7 +147,7 @@ ul li {
   border-bottom: 1px dotted #333;
 }
 
-.games-list>li {
+.games-list > li {
   border-bottom: none;
 }
 
@@ -304,11 +304,26 @@ button {
   z-index: 2;
 }
 
-@media (width <=600px) {
+.auth-submit-button {
+  margin-top: 1em;
+}
+
+.logout-button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background-color: #333;
+  color: #fff;
+}
+
+.logout-button:hover {
+  opacity: 0.8;
+}
+
+@media (width <= 600px) {
   .games-list li article {
     grid-template-columns: 1fr;
   }
-
   .users-list li div {
     grid-template-columns: min-content 1fr;
   }
