@@ -1,11 +1,10 @@
 // Создаём роут для запросов категорий 
 const categoriesRouter = require('express').Router();
 
-const checkAuth = require("../middlewares/auth");
+const { checkAuth } = require("../middlewares/auth");
 const { findAllCategories, checkIsCategoryExists, createCategory, findCategoryById, updateCategory, deleteCategory, checkEmptyName } = require('../middlewares/categories');
 const { sendAllCategories, sendCategoryCreated, sendCategoryById, sendCategoryUpdated, sendCategoryDeleted } = require('../controllers/categories');
 
-// Обрабатываем GET-запрос с роутом '/categories'
 categoriesRouter.get('/categories', findAllCategories, sendAllCategories);
 categoriesRouter.get("/categories/:id", findCategoryById, sendCategoryById);
 
