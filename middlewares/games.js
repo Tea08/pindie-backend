@@ -11,7 +11,7 @@ const findAllGames = async (req, res, next) => {
 
 const findAllGames = async (req, res, next) => {
   // Поиск всех игр в проекте по заданной категории
-  if(req.query["categories.name"]) { 
+  if (req.query["categories.name"]) {
     req.gamesArray = await games.findGameByCategory(req.query["categories.name"]);
     next();
     return;
@@ -26,8 +26,6 @@ const findAllGames = async (req, res, next) => {
     })
   next();
 };
-
-
 
 const createGame = async (req, res, next) => {
   console.log("POST /games");
@@ -136,5 +134,13 @@ const checkIsGameExists = async (req, res, next) => {
   }
 };
 
+const checkIsVoteRequest = async (req, res, next) => {
+  // Если в запросе присылают только поле users
+  if (Object.keys(req.body).length === 1 && req.body.users) {
+    req.isVoteRequest = true;
+  }
+  next();
+};
+
 // Экспортируем функцию поиска всех категорий
-module.exports = { findAllGames, createGame, findGameById, updateGame, deleteGame, checkEmptyFields, checkIfCategoriesAvaliable, checkIfUsersAreSafe, checkIsGameExists };
+module.exports = { findAllGames, createGame, findGameById, updateGame, deleteGame, checkEmptyFields, checkIfCategoriesAvaliable, checkIfUsersAreSafe, checkIsGameExists, checkIsVoteRequest };
