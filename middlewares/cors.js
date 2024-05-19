@@ -4,6 +4,7 @@ const allowedCors = [
    'localhost:3000',
    'http://localhost:3000',
    'localhost:3001',
+   'https://tea-front.nomoredomainswork.ru'
 ];
 
 function cors(req, res, next) {
